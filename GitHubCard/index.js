@@ -95,7 +95,7 @@ function cardMaker(object) {
   userName.textContent = object.data.login;
   location.textContent = `Location: ${object.data.location}`;
   pageLink.href = object.data.html_url;
-  profile.textContent = `Profile: \n ${pageLink}`;
+  pageLink.textContent = "Profile";
   followers.textContent = `Followers: ${object.data.followers}`;
   following.textContent = `Following: ${object.data.following}`;
   bio.textContent = `Bio: ${object.data.bio}`;

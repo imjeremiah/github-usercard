@@ -11,9 +11,11 @@ axios
   .then((res) => {
     console.log(res);
     const myCard = cardMaker(res);
-    document.querySelector(".cards").appendChild(myCard);
+    cards.appendChild(myCard);
   })
-  .catch(err => console.log(err));
+  .catch(err => {
+    debugger;
+  });
 
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
@@ -42,6 +44,18 @@ let cards = document.querySelector(".cards");
 */
 
 const followersArray = [ "tetondan", "dustinmyers", "justsml", "luishrd", "bigknell"];
+
+
+followersArray.forEach(link => {
+  axios
+  .get(`https://api.github.com/users/` + link)
+  .then((res) => {
+    console.log(res);
+    let newCard = cardMaker(res);
+    cards.appendChild(newCard);
+  });
+});
+
 
 /*
   STEP 3: Create a function that accepts a single object as its only argument.
